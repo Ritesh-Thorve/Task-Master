@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"]
+    },
+    "checkJs": false,  // Optional: Enable if you want type-checking in JS
+    "target": "ES6",
+    "module": "ESNext",
+    "jsx": "preserve"  // Keeps JSX syntax
+  },
+  "exclude": ["node_modules"]
+}

@@ -1,0 +1,48 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  tasks     Task[]
+}
+
+model Task {
+  id          String    @id @default(cuid())
+  title       String
+  description String?
+  dueDate     DateTime?
+  completed   Boolean   @default(false)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  userId      String
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  recurrence  Recurrence?
+
+  @@index([userId])
+}
+
+model Recurrence {
+  id           String    @id @default(cuid())
+  type         String    // daily, weekly, monthly, yearly, custom
+  startDate    DateTime
+  endDate      DateTime?
+  interval     Int?
+  intervalUnit String?
+  daysOfWeek   Int[]     // 0-6, where 0 is Sunday
+  dayOfMonth   Int?      // 1-31
+  weekOfMonth  Int?      // 1-5, where 5 means "last"
+  dayOfWeek    Int?      // 0-6, where 0 is Sunday
+  monthOfYear  Int?      // 1-12, where 1 is January
+  taskId       String    @unique
+  task         Task      @relation(fields: [taskId], references: [id], onDelete: Cascade)
+}
