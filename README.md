@@ -69,22 +69,14 @@ cd task-master
 npm install
 ```
 
-### 3. Configure environment
-
-Create a `.env` file in the root:
-
-```
-DATABASE_URL=postgresql://user:password@localhost:5432/taskmaster
-```
-
-### 4. Setup PostgreSQL and Prisma
+### 3. Setup PostgreSQL and Prisma
 
 ```bash
 npx prisma migrate dev --name init
 npx prisma generate
 ```
 
-### 5. Run the development server
+### 4. Run the development server
 
 ```bash
 npm run dev
@@ -176,14 +168,3 @@ The backend connects to PostgreSQL using Prisma for ORM.
 
 ---
 
-## 📄 License
-
-MIT © 2025 [Your Name]
-
----
-
-## 📬 Contact
-
-Have questions or suggestions?  
-📧 Email: your.email@example.com  
-🌐 Website: [yourportfolio.com](https://yourportfolio.com)
