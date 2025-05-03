@@ -144,27 +144,3 @@ The backend connects to PostgreSQL using Prisma for ORM.
   }
 }
 ```
-
----
-
-## 🗺️ Roadmap
-
-- [ ] User authentication (OAuth + JWT)
-- [ ] Push/email reminders
-- [ ] Drag and drop calendar scheduling
-- [ ] Task tagging & filtering
-- [ ] Mobile optimization
-
----
-
-## 🤝 Contributing
-
-1. Fork the repo
-2. Create a new branch: `git checkout -b feature/recurrence`
-3. Make your changes
-4. Commit: `git commit -m 'Added recurrence feature'`
-5. Push: `git push origin feature/recurrence`
-6. Submit a pull request 🎉
-
----
-
